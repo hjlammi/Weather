@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock.js';
-import DataFetcher from './DataFetcher';
+import LocationDataFetcher from './LocationDataFetcher';
 var moment = require('moment');
 
 class InfoBox extends Component {
     render() {
         return (
-            <DataFetcher />
+            <LocationDataFetcher />
         )
     }
 }
