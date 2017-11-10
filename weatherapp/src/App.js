@@ -1,30 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock';
+import DateComponent from './DateComponent';
 var moment = require('moment');
 
 class InfoBox extends Component {
   render() {
     return (
       <div>
-      </div>
-    )
-  }
-}
-
-class DateComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      date: moment().format("MMMM D YYYY")
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.date}
       </div>
     )
   }
