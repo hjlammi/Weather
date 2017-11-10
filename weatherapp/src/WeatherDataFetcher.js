@@ -1,36 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Clock from './Clock';
-var moment = require('moment');
 
-class InfoBox extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    )
-  }
-}
-
-class DateComponent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      date: moment().format("MMMM D YYYY")
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.date}
-      </div>
-    )
-  }
-}
-
-class App extends Component {
+class WeatherDataFetcher extends Component {
   constructor(props) {
     super();
 
@@ -51,7 +21,7 @@ class App extends Component {
         fetch(address).then(results => {
           return results.json();
         }).then(data => {
-          console.log(data);
+          console.log(data)
           this.setState({
             place: data.name,
             weather: data
@@ -69,17 +39,11 @@ class App extends Component {
 
     render() {
       return (
-        <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Weather Now</h1>
-          </header>
-          <DateComponent />
-          <Clock />
-          <h1>{this.state.place}</h1>
-          <InfoBox>{this.state.weather}</InfoBox>
+        <div>
+        <h1>{this.props.weather}</h1>
         </div>
-      );
+      )
     }
   }
 
-  export default App;
+  export default WeatherDataFetcher;
