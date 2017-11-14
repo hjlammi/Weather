@@ -4,15 +4,6 @@ import Clock from './Clock';
 import DateComponent from './DateComponent';
 var moment = require('moment');
 
-class InfoBox extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    )
-  }
-}
-
 class App extends Component {
   constructor(props) {
     super();
@@ -73,11 +64,10 @@ class App extends Component {
         <h1>{this.state.place}</h1>
         <p>{this.state.description}</p>
         <p>Current temperature: {this.state.temp} C</p>
-        <p>Humidity: {this.state.humidity} C</p>
+        <p>Humidity: {this.state.humidity} %</p>
         <p>Wind: {this.state.wind} m/s</p>
         <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
         <p>Sunset: {moment.unix(this.state.sunset).format("HH.mm")}</p>
-        <InfoBox>{this.state.weather}</InfoBox>
       </div>
     );
   }
