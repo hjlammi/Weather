@@ -1,7 +1,7 @@
 .App {
   height: 100vh;
   text-align: center;
-  background-image: url('blue-clouds-day-fluffy-53594.jpeg');
+  background-size: cover;
 }
 
 .App-logo {

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock';
 import DateComponent from './DateComponent';
+import Background1 from './img/background_images/blue-clouds-day-fluffy-53594.jpeg';
+import Background2 from './img/background_images/few_clouds.jpeg';
 var moment = require('moment');
 
 class App extends Component {
@@ -16,7 +18,9 @@ class App extends Component {
       humidity: "",
       wind: "",
       sunrise: "",
-      sunset: ""
+      sunset: "",
+      id: "",
+      dataIsLoaded: false
     }
   }
 
@@ -28,6 +32,7 @@ class App extends Component {
         var apiKey = "4a7cbaa6c92638da2d7083e157b44740"
         var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
         "&units=metric&APPID=" + apiKey;
+        // var address = "http://127.0.0.1:8000/response.json";
 
         fetch(address).then(results => {
           return results.json();
@@ -40,9 +45,12 @@ class App extends Component {
             humidity: data.main.humidity,
             wind: data.wind.speed,
             sunrise: data.sys.sunrise,
-            sunset: data.sys.sunset
+            sunset: data.sys.sunset,
+            id: data.weather[0].id,
+            dataIsLoaded: true
           })
-        })},
+        });
+      },
       (error) => {
         const place = prompt("Couldn't locate you automatically. Please give your location:");
         this.setState({
@@ -54,8 +62,22 @@ class App extends Component {
   }
 
   render() {
+
+    let bgImg;
+    if (this.state.dataIsLoaded) {
+      if (this.state.id === 801 || this.state.id === 802) {
+        bgImg = Background1;
+      } else if (this.state.id === 803 || this.state.id === 804) {
+        bgImg = Background2;
+      }
+    }
+
+    let divStyle = {
+      backgroundImage: 'url(' + bgImg + ')'
+    }
+
     return (
-      <div className="App">
+      <div className="App" style={divStyle}>
         <header className="App-header">
           <h1 className="App-title">Weather Now</h1>
         </header>
