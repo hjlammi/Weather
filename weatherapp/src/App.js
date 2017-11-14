@@ -20,6 +20,7 @@ class App extends Component {
       sunrise: "",
       sunset: "",
       id: "",
+      icon: "",
       dataIsLoaded: false
     }
   }
@@ -47,6 +48,7 @@ class App extends Component {
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             id: data.weather[0].id,
+            icon: data.weather[0].icon,
             dataIsLoaded: true
           })
         });
@@ -76,6 +78,8 @@ class App extends Component {
       backgroundImage: 'url(' + bgImg + ')'
     }
 
+    let iconURL = "http://openweathermap.org/img/w/" + this.state.icon + ".png";
+
     return (
       <div className="App" style={divStyle}>
         <header className="App-header">
@@ -84,6 +88,7 @@ class App extends Component {
         <DateComponent />
         <Clock />
         <h1>{this.state.place}</h1>
+        <img src={iconURL} alt=""/>
         <p>{this.state.description}</p>
         <p>Current temperature: {this.state.temp} C</p>
         <p>Humidity: {this.state.humidity} %</p>
