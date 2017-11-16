@@ -16,6 +16,7 @@ import BackgroundWindy from './img/background_images/abstract/windy.jpg';
 import BackgroundCloudy from './img/background_images/abstract/cloudy.jpg';
 import BackgroundDandelion from './img/background_images/abstract/else.jpg';
 import BackgroundLoading from './img/background_images/abstract/loading.jpg';
+import YellowSun from "./img/SVG/YellowSun.svg";
 var moment = require('moment');
 
 class App extends Component {
@@ -124,7 +125,8 @@ class App extends Component {
     return (
       <div className="App" style={divStyle}>
         <header className="App-header">
-          <h1 className="App-title">WeatherNow</h1>
+
+            <h1 className="App-title"><img src={YellowSun} alt="logo" className="App-logo"/>WeatherNow</h1>
         </header>
         <div className="infoContainer">
           <h1>{this.state.place}</h1>
