@@ -15,6 +15,7 @@ import BackgroundHot from './img/background_images/abstract/hot.jpeg';
 import BackgroundWindy from './img/background_images/abstract/windy.jpg';
 import BackgroundCloudy from './img/background_images/abstract/cloudy.jpg';
 import BackgroundDandelion from './img/background_images/abstract/else.jpg';
+import BackgroundLoading from './img/background_images/abstract/loading.jpg';
 var moment = require('moment');
 
 class App extends Component {
@@ -42,9 +43,9 @@ class App extends Component {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         var apiKey = "4a7cbaa6c92638da2d7083e157b44740"
-        // var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
-        // "&units=metric&APPID=" + apiKey;
-        var address = "http://127.0.0.1:8000/response.json";
+        var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
+        "&units=metric&APPID=" + apiKey;
+        // var address = "http://127.0.0.1:8000/response.json";
 
         fetch(address).then(results => {
           return results.json();
@@ -127,14 +128,16 @@ class App extends Component {
         </header>
         <DateComponent />
         <Clock />
-        <h1>{this.state.place}</h1>
-        <img src={iconURL} alt=""/>
-        <p>{this.state.description}</p>
-        <p>Current temperature: {this.state.temp} C</p>
-        <p>Humidity: {this.state.humidity} %</p>
-        <p>Wind: {this.state.wind} m/s</p>
-        <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
-        <p>Sunset: {moment.unix(this.state.sunset).format("HH.mm")}</p>
+        <div className="infoContainer">
+          <h1>{this.state.place}</h1>
+          <img src={iconURL} alt=""/>
+          <p>{this.state.description}</p>
+          <p>Temperature: {this.state.temp} C</p>
+          <p>Humidity: {this.state.humidity} %</p>
+          <p>Wind: {this.state.wind} m/s</p>
+          <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
+          <p>Sunset: {moment.unix(this.state.sunset).format("HH.mm")}</p>
+        </div>
       </div>
     );
   }
