@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": 24,
+    "lat": 61.47
+  },
+  "weather": [
+    {
+      "id": 801,
+      "main": "Clouds",
+      "description": "it's raining men (hallelujah)",
+      "icon": "04n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 1,
+    "pressure": 1006,
+    "humidity": 98,
+    "temp_min": 1,
+    "temp_max": 1
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.6,
+    "deg": 210
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1510680000,
+  "sys": {
+    "type": 1,
+    "id": 5045,
+    "message": 0.0052,
+    "country": "FI",
+    "sunrise": 1510641059,
+    "sunset": 1510667118
+  },
+  "id": 654440,
+  "name": "Kangasala",
+  "cod": 200
+}

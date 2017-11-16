@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock';
 import DateComponent from './DateComponent';
-import Background1 from './img/background_images/blue-clouds-day-fluffy-53594.jpeg';
-import Background2 from './img/background_images/few_clouds.jpeg';
+import BackgroundBroken from './img/background_images/abstract/broken.jpg';
+import BackgroundFewClouds from './img/background_images/abstract/few_clouds.jpeg';
+import BackgroundBalloon from './img/background_images/abstract/balloon.jpg';
+import BackgroundThunder from './img/background_images/abstract/thunder2.jpg';
+import BackgroundRain from './img/background_images/abstract/rain-drops.jpeg';
+import BackgroundSnow from './img/background_images/abstract/snow.jpg';
+import BackgroundFog from './img/background_images/abstract/fog.jpg';
+import BackgroundStorm from './img/background_images/abstract/storm.jpg';
+import BackgroundCold from './img/background_images/abstract/frost.jpeg';
+import BackgroundHot from './img/background_images/abstract/hot.jpeg';
+import BackgroundWindy from './img/background_images/abstract/windy.jpg';
+import BackgroundCloudy from './img/background_images/abstract/cloudy.jpg';
+import BackgroundDandelion from './img/background_images/abstract/else.jpg';
 var moment = require('moment');
 
 class App extends Component {
@@ -31,9 +42,9 @@ class App extends Component {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         var apiKey = "4a7cbaa6c92638da2d7083e157b44740"
-        var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
-        "&units=metric&APPID=" + apiKey;
-        // var address = "http://127.0.0.1:8000/response.json";
+        // var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
+        // "&units=metric&APPID=" + apiKey;
+        var address = "http://127.0.0.1:8000/response.json";
 
         fetch(address).then(results => {
           return results.json();
@@ -67,10 +78,38 @@ class App extends Component {
 
     let bgImg;
     if (this.state.dataIsLoaded) {
-      if (this.state.id === 801 || this.state.id === 802) {
-        bgImg = Background1;
+      if (this.state.id >= 200 && this.state.id <= 232) {
+        bgImg = BackgroundThunder;
+      } else if (this.state.id >= 300 && this.state.id <= 321) {
+        bgImg = BackgroundRain;
+      } else if (this.state.id >= 500 && this.state.id <= 531 ) {
+        bgImg = BackgroundRain;
+      } else if (this.state.id >= 600 && this.state.id <= 622) {
+        bgImg = BackgroundSnow;
+      } else if (this.state.id >= 701 && this.state.id <= 771) {
+        bgImg = BackgroundFog;
+      } else if (this.state.id === 800) {
+        bgImg = BackgroundBalloon;
+      } else if (this.state.id === 801 || this.state.id === 802) {
+        bgImg = BackgroundBroken;
       } else if (this.state.id === 803 || this.state.id === 804) {
-        bgImg = Background2;
+        bgImg = BackgroundCloudy;
+      } else if (this.state.id === 781) {
+        bgImg = BackgroundStorm;
+      } else if (this.state.id >= 900 && this.state.id <= 902) {
+        bgImg = BackgroundStorm;
+      } else if (this.state.id >= 960 && this.state.id <= 962) {
+        bgImg = BackgroundStorm;
+      } else if (this.state.id === 903) {
+        bgImg = BackgroundCold;
+      } else if (this.state.id === 904) {
+        bgImg = BackgroundHot;
+      } else if (this.state.id >= 905 && this.state.id <= 906) {
+        bgImg = BackgroundWindy;
+      } else if (this.state.id >= 952 && this.state.id <= 959) {
+        bgImg = BackgroundWindy;
+      } else {
+        bgImg = BackgroundDandelion;
       }
     }
 
@@ -78,7 +117,8 @@ class App extends Component {
       backgroundImage: 'url(' + bgImg + ')'
     }
 
-    let iconURL = "http://openweathermap.org/img/w/" + this.state.icon + ".png";
+    let icon = this.state.icon;
+    let iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
 
     return (
       <div className="App" style={divStyle}>
@@ -100,4 +140,4 @@ class App extends Component {
   }
 }
 
-  export default App;
+export default App;
