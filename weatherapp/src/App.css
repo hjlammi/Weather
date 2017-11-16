@@ -11,13 +11,13 @@
 
 .App-header {
   background-color: #222;
-  height: 1em;
+  height: 10%;
   padding: 1em;
   color: white;
 }
 
 .App-title {
-  font-size: 1.25em;
+  font-size: 2em;
   margin: 0;
 }
 
@@ -29,7 +29,7 @@
   background-color: rgba(255, 255, 255, 0.3);
   max-width: 50%;
   min-width: 186px;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
 }
@@ -38,11 +38,20 @@ img {
   margin: auto;
 }
 
-p, h1 {
-  margin: 10px auto;
+p,
+h1 {
+  margin: 0 auto;
+  padding: 10px;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 320px) {
+  h1,
+  .App-title {
+    font-size: 1.25em;
+  }
 }
