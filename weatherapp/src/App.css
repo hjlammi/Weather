@@ -14,11 +14,17 @@
   height: 10%;
   padding: 1em;
   color: white;
+  position: relative;
 }
 
 .App-title {
   font-size: 2em;
   margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .App-intro {

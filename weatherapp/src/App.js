@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock';
 import DateComponent from './DateComponent';
-import BackgroundBroken from './img/background_images/abstract/broken.jpg';
+import BackgroundBroken from './img/background_images/abstract/broken2.jpg';
 import BackgroundFewClouds from './img/background_images/abstract/few_clouds.jpeg';
-import BackgroundBalloon from './img/background_images/abstract/balloon.jpg';
+import BackgroundBalloon from './img/background_images/abstract/balloon2.jpg';
 import BackgroundThunder from './img/background_images/abstract/thunder2.jpg';
 import BackgroundRain from './img/background_images/abstract/rain-drops.jpeg';
-import BackgroundSnow from './img/background_images/abstract/snow.jpg';
+import BackgroundSnow from './img/background_images/abstract/snow2.jpg';
 import BackgroundFog from './img/background_images/abstract/fog.jpg';
 import BackgroundStorm from './img/background_images/abstract/storm.jpg';
 import BackgroundCold from './img/background_images/abstract/frost.jpeg';
@@ -124,7 +124,7 @@ class App extends Component {
     return (
       <div className="App" style={divStyle}>
         <header className="App-header">
-          <h1 className="App-title">Weather Now</h1>
+          <h1 className="App-title">WeatherNow</h1>
         </header>
         <div className="infoContainer">
           <h1>{this.state.place}</h1>
