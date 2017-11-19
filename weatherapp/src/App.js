@@ -16,7 +16,7 @@ import BackgroundWindy from './img/background_images/abstract/windy.jpg';
 import BackgroundCloudy from './img/background_images/abstract/cloudy.jpg';
 import BackgroundDandelion from './img/background_images/abstract/else.jpg';
 import BackgroundLoading from './img/background_images/abstract/loading.jpg';
-import YellowSun from "./img/SVG/YellowSun.svg";
+import YellowSun from "./img/YellowSun.svg";
 var moment = require('moment');
 
 class App extends Component {
@@ -120,7 +120,8 @@ class App extends Component {
     }
 
     let icon = this.state.icon;
-    let iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+    let iconURL = "./SVG/" + icon + ".svg";
+    console.log(iconURL);
 
     return (
       <div className="App" style={divStyle}>
@@ -132,7 +133,7 @@ class App extends Component {
           <h1>{this.state.place}</h1>
           <DateComponent />
           <Clock />
-          <img src={iconURL} alt=""/>
+          <img src={process.env.PUBLIC_URL + iconURL} alt=""/>
           <p>{this.state.description}</p>
           <p>Temperature: {this.state.temp} C</p>
           <p>Humidity: {this.state.humidity} %</p>
