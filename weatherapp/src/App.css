@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   height: 100vh;
   text-align: center;
   background-size: cover;
+  background-attachment: fixed;
   font-family: 'Oxygen', sans-serif;
 }
 
@@ -12,6 +17,7 @@
 
 .App-header {
   background-color: #222;
+  min-height: 61px;
   height: 10%;
   padding: 1em;
   color: white;
@@ -43,6 +49,10 @@
   flex-direction: column;
 }
 
+.clock {
+  padding: 5px;
+}
+
 img {
   margin: auto;
 }
@@ -50,7 +60,6 @@ img {
 p,
 h1 {
   margin: 0 auto;
-  padding: 10px;
 }
 
 @keyframes App-logo-spin {
@@ -58,9 +67,23 @@ h1 {
   to { transform: rotate(360deg); }
 }
 
-@media screen and (max-width: 320px) {
-  h1,
-  .App-title {
-    font-size: 1.25em;
+@media screen and (max-width: 480px) {
+  .App-header {
+    height: 20%;
+  }
+
+  .App-logo {
+    height: 50px;
   }
 }
+
+/*@media screen and (max-width: 320px) {
+  h1,
+  .App-title {
+    font-size: 1.5em;
+  }
+
+  .App-logo {
+    height: 30px;
+  }
+}*/

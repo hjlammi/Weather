@@ -6,7 +6,7 @@ class DateComponent extends Component {
     super(props);
 
     this.state = {
-      date: moment().format("MMMM D YYYY")
+      date: moment().format("ddd D MMMM YYYY")
     }
   }
 

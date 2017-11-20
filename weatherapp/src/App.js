@@ -44,9 +44,9 @@ class App extends Component {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         var apiKey = "4a7cbaa6c92638da2d7083e157b44740"
-        // var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
-        // "&units=metric&APPID=" + apiKey;
-        var address = "http://127.0.0.1:8000/response.json";
+        var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
+        "&units=metric&APPID=" + apiKey;
+        // var address = "http://127.0.0.1:8000/response.json";
 
         fetch(address).then(results => {
           return results.json();
@@ -121,21 +121,19 @@ class App extends Component {
 
     let icon = this.state.icon;
     let iconURL = "./SVG/" + icon + ".svg";
-    console.log(iconURL);
 
     return (
       <div className="App" style={divStyle}>
         <header className="App-header">
 
-            <h1 className="App-title"><img src={YellowSun} alt="logo" className="App-logo"/>WeatherNow</h1>
+          <h1 className="App-title"><img src={YellowSun} alt="logo" className="App-logo"/>WeatherNow</h1>
         </header>
         <div className="infoContainer">
           <h1>{this.state.place}</h1>
           <DateComponent />
           <Clock />
-          <img src={process.env.PUBLIC_URL + iconURL} alt=""/>
+          <p><img src={process.env.PUBLIC_URL + iconURL} alt=""/>{this.state.temp} &deg;C</p>
           <p>{this.state.description}</p>
-          <p>Temperature: {this.state.temp} C</p>
           <p>Humidity: {this.state.humidity} %</p>
           <p>Wind: {this.state.wind} m/s</p>
           <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
