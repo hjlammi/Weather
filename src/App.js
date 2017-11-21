@@ -4,7 +4,6 @@ import Clock from './Clock';
 import DateComponent from './DateComponent';
 import HamburgerMenu from './HamburgerMenu';
 import BackgroundBroken from './img/background_images/abstract/broken2.jpg';
-import BackgroundFewClouds from './img/background_images/abstract/few_clouds.jpeg';
 import BackgroundBalloon from './img/background_images/abstract/balloon2.jpg';
 import BackgroundThunder from './img/background_images/abstract/thunder2.jpg';
 import BackgroundRain from './img/background_images/abstract/rain-drops.jpeg';

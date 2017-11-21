@@ -58,10 +58,11 @@ h1 {
   margin: 0 auto;
 }
 
-.menu {
+.ham-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .menu-bar {
@@ -70,6 +71,25 @@ h1 {
   background-color: white;
   width: 20px;
   height: 3px;
+}
+
+.menu {
+  background-color: #222;
+  z-index: 1;
+  border: 1px solid;
+  border-color: grey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.menu p {
+  text-align: left;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 @keyframes App-logo-spin {
