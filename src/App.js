@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock';
 import DateComponent from './DateComponent';
+import HamburgerMenu from './HamburgerMenu';
 import BackgroundBroken from './img/background_images/abstract/broken2.jpg';
 import BackgroundFewClouds from './img/background_images/abstract/few_clouds.jpeg';
 import BackgroundBalloon from './img/background_images/abstract/balloon2.jpg';
@@ -125,7 +126,7 @@ class App extends Component {
     return (
       <div className="App" style={divStyle}>
         <header className="App-header">
-
+          <HamburgerMenu />
           <h1 className="App-title"><img src={YellowSun} alt="logo" className="App-logo"/>WeatherNow</h1>
         </header>
         <div className="infoContainer">
