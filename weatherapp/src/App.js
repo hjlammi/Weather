@@ -44,9 +44,9 @@ class App extends Component {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         var apiKey = "4a7cbaa6c92638da2d7083e157b44740"
-        // var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
-        // "&units=metric&APPID=" + apiKey;
-        var address = "http://127.0.0.1:8000/response.json";
+        var address = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +
+        "&units=metric&APPID=" + apiKey;
+        // var address = "http://127.0.0.1:8000/response.json";
 
         fetch(address).then(results => {
           return results.json();
