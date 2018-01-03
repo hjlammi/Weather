@@ -18,8 +18,8 @@ class HamburgerMenu extends Component {
 
   render() {
     return (
-      <div>
-        <div className="ham-menu" onClick={this.handleClick.bind(this)}>
+      <div className="ham-menu">
+        <div onClick={this.handleClick.bind(this)}>
           <div className="menu-bar"></div>
           <div className="menu-bar"></div>
           <div className="menu-bar"></div>
