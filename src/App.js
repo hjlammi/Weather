@@ -124,7 +124,7 @@ class App extends Component {
     }
 
     let icon = this.state.icon;
-    let iconURL = "./SVG/" + icon + ".svg";
+    let iconURL = "/SVG/" + icon + ".svg";
 
     if (this.state.errorOpen) {
       infoHidden = { display: "none"}
