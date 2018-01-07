@@ -129,9 +129,9 @@ class App extends Component {
           <h1 className="App-title"><img src={YellowSun} alt="logo" className="App-logo"/>WeatherNow</h1>
         </header>
         <div className="infoContainer">
-          <h1>{this.state.place}</h1>
           <DateComponent />
           <Clock />
+          <h1>{this.state.place}</h1>
           <p><img src={process.env.PUBLIC_URL + iconURL} alt=""/>{this.state.temp} &deg;C</p>
           <p>{this.state.description}</p>
           <p>Humidity: {this.state.humidity} %</p>
