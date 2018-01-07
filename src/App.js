@@ -34,7 +34,8 @@ class App extends Component {
       sunset: "",
       id: "",
       icon: "",
-      dataIsLoaded: false
+      dataIsLoaded: false,
+      errorOpen: false
     }
   }
 
@@ -67,9 +68,8 @@ class App extends Component {
         });
       },
       (error) => {
-        const place = prompt("Couldn't locate you automatically. Please give your location:");
         this.setState({
-          place: place
+          errorOpen: true
         })
       },
       {timeout: 20000});
@@ -78,6 +78,7 @@ class App extends Component {
 
   render() {
 
+    let errorHidden, infoHidden;
     let bgImg;
     if (this.state.dataIsLoaded) {
       if (this.state.id >= 200 && this.state.id <= 232) {
@@ -113,6 +114,9 @@ class App extends Component {
       } else {
         bgImg = BackgroundDandelion;
       }
+    } else {
+      bgImg = BackgroundDandelion;
+      infoHidden = { display: "none"}
     }
 
     let divStyle = {
@@ -121,6 +125,12 @@ class App extends Component {
 
     let icon = this.state.icon;
     let iconURL = "./SVG/" + icon + ".svg";
+
+    if (this.state.errorOpen) {
+      infoHidden = { display: "none"}
+    } else {
+      errorHidden = { display: "none" };
+    }
 
     return (
       <div className="App" style={divStyle}>
@@ -131,13 +141,18 @@ class App extends Component {
         <div className="infoContainer">
           <DateComponent />
           <Clock />
-          <h1>{this.state.place}</h1>
-          <p><img src={process.env.PUBLIC_URL + iconURL} alt=""/>{this.state.temp} &deg;C</p>
-          <p>{this.state.description}</p>
-          <p>Humidity: {this.state.humidity} %</p>
-          <p>Wind: {this.state.wind} m/s</p>
-          <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
-          <p>Sunset: {moment.unix(this.state.sunset).format("HH.mm")}</p>
+          <div className="weatherInfo" style={infoHidden}>
+            <h1>{this.state.place}</h1>
+            <p><img src={process.env.PUBLIC_URL + iconURL} alt=""/>{this.state.temp} &deg;C</p>
+            <p>{this.state.description}</p>
+            <p>Humidity: {this.state.humidity} %</p>
+            <p>Wind: {this.state.wind} m/s</p>
+            <p>Sunrise: {moment.unix(this.state.sunrise).format("HH.mm")}</p>
+            <p>Sunset: {moment.unix(this.state.sunset).format("HH.mm")}</p>
+          </div>
+          <div className="errorMsg" style={errorHidden}>
+            <h3>Unfortunately something went wrong and we couldn't locate you automatically!</h3>
+          </div>
         </div>
       </div>
     );
